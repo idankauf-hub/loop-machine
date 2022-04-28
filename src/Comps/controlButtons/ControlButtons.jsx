@@ -31,7 +31,6 @@ export default function ControlButtons(props) {
         justifyContent="center"
         alignItems="center"
         spacing={3}
-        marginTop={2}
       >
         <Fab
           onClick={() => {

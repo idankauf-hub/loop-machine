@@ -2,8 +2,20 @@
   text-align: center;
   background-color: rgb(54, 36, 71);
   height:100%;
-  position: absolute;
-  left: 0;
   width: 100%;
-  overflow: hidden;
+  padding: 20px;
+}
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+}
+#root {
+  height: 100%;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
