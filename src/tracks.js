@@ -7,51 +7,51 @@ import HighVoc from "../src/Assets/HIGH VOC.mp3";
 import Jibrish from "../src/Assets/JIBRISH.mp3";
 import Lead1 from "../src/Assets/LEAD 1.mp3";
 import UuhoVoc from "../src/Assets/UUHO VOC.mp3";
-
 export default [
   {
     title: "Tambourine",
-    audioSrc: Tambourine,
+    audio: Tambourine,
     color: "#00aeb0",
   },
   {
     title: "AllTrack",
-    audioSrc: AllTrack,
+    audio: AllTrack,
     color: "#ffb77a",
   },
   {
     title: "Drums",
-    audioSrc: Drums,
+    audio: Drums,
     color: "#cddc39",
   },
   {
     title: "BVoc",
-    audioSrc: BVoc,
+    audio: BVoc,
     color: "#ff5722",
   },
   {
     title: "HeHeVoc",
-    audioSrc: HeHeVoc,
+    audio: HeHeVoc,
     color: "#5f9fff",
   },
   {
     title: "HighVoc",
-    audioSrc: HighVoc,
+    audio: HighVoc,
     color: "#2196f3",
   },
-  {
-    title: "Jibrish",
-    audioSrc: Jibrish,
-    color: "#ff4081",
-  },
+
   {
     title: "Lead1",
-    audioSrc: Lead1,
+    audio: Lead1,
     color: "#9c27b0",
   },
   {
+    title: "Jibrish",
+    audio: Jibrish,
+    color: "#004089",
+  },
+  {
     title: "UuhoVoc",
-    audioSrc: UuhoVoc,
+    audio: UuhoVoc,
     color: "#ff4081",
   },
 ];

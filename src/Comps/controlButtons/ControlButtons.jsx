@@ -5,11 +5,24 @@ import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import PauseIcon from "@mui/icons-material/Pause";
 import StopIcon from "@mui/icons-material/Stop";
 import Stack from "@mui/material/Stack";
-import Divider from "@mui/material/Divider";
 import { Fab } from "@mui/material";
+import AllInclusiveIcon from "@mui/icons-material/AllInclusive";
+import { borderRadius } from "@mui/system";
+import MuiToggleButton from "@mui/material/ToggleButton";
+import { styled } from "@mui/material/styles";
+import { TrackingSlider } from "../trackingSlider/TrackingSlider";
 
-export default function ControlButtons() {
+const ToggleButton = styled(MuiToggleButton)({
+  "&.Mui-selected, &.Mui-selected:hover": {
+    color: "white",
+    backgroundColor: "#E0E0E0",
+  },
+});
+
+//Using Props to send all the data about the actions to his parent "App.js"
+export default function ControlButtons(props) {
   const [clicked, setClicked] = useState(false);
+  const [selected, setSelected] = React.useState(false);
 
   return (
     <div>
@@ -17,27 +30,51 @@ export default function ControlButtons() {
         direction="row"
         justifyContent="center"
         alignItems="center"
-        divider={<Divider orientation="vertical" flexItem />}
-        spacing={1}
+        spacing={3}
         marginTop={2}
       >
         <Fab
           onClick={() => {
-            if(clicked == false){
+            if (clicked == false) {
+              props.isPlaying(!clicked)
               setClicked(true);
-            }
-            else{
+              props.isStoped(false)
+            } else {
               setClicked(false);
+              props.isPlaying(!clicked)
+
             }
           }}
         >
           {clicked ? <PauseIcon /> : <PlayArrowIcon />}
         </Fab>
 
-        <Fab>
+        <Fab
+          onClick={() => {
+            setClicked(false);
+            setSelected(false);
+            props.isPlaying(false)
+            props.isStoped(true)
+
+          }}
+        >
           <StopIcon />
         </Fab>
+
+        <ToggleButton
+          value="check"
+          selected={selected}
+          onChange={() => {
+            setClicked(true);
+            setSelected(!selected);
+            props.isLoop(!selected)
+
+          }}
+        >
+          <AllInclusiveIcon style={{ fontSize: "2rem"}} />
+        </ToggleButton>
       </Stack>
+      <TrackingSlider/>
     </div>
   );
 }

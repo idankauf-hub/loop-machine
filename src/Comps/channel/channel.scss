@@ -7,3 +7,12 @@
     box-shadow: 0 12px 12px rgba(0, 0, 0, 0.2);
     margin: auto;
 }
+.mute{
+    padding-bottom: "4px";
+    &.white{
+        color:white;
+    }
+    &.black{
+        color:black;
+    }
+}
