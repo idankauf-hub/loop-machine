@@ -1,0 +1,21 @@
+.curser{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    background-color: transparent;
+    button{
+        background-color:black;
+        width: 10px;
+        height: 20px;
+        position: relative;
+        border-radius: 20px;
+        .candle{
+            position: absolute;
+            height: 75vh;
+            width: 1px;
+            background-color: black;
+            z-index: 1000;
+        }
+    }
+    
+}

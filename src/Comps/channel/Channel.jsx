@@ -3,7 +3,7 @@ import Stack from "@mui/material/Stack";
 import "./channel.scss";
 import React, { useState, useEffect, useRef } from "react";
 
-export default function Channel({ track, isPlaying, isLoop, isStoped }) {
+export default function Channel({ track, isPlaying, isLoop, isStoped,setBiggestSample }) {
   const audioRef = useRef(new Audio(track.audio));
   const [clicked, setClicked] = useState(false);
 
@@ -12,28 +12,16 @@ export default function Channel({ track, isPlaying, isLoop, isStoped }) {
     setClicked(audioRef.current.muted);
   };
 
-//   const startTimer = () => {
-//     // Clear any timers already running
-//     clearInterval(intervalRef.current);
-
-//     intervalRef.current = setInterval(() => {
-//       if (audioRef.current.ended) {
-//         toNextTrack();
-//       } else {
-//         setTrackProgress(audioRef.current.currentTime);
-//       }
-//     }, [1000]);
-//   }
-
-//   useEffect(() => {
-//     //Pause and clean up on unmount
-//     return () => {
-//       audioRef.current.pause();
-//       clearInterval(intervalRef.current);
-//     }
-//   }, []);
-
   useEffect(() => {
+    setBiggestSample((biggest)=>{
+        const duration = audioRef.current.duration;
+        const biggestDuration = biggest
+          ? biggest.current.currentTime
+          : 0;
+        biggest = duration > biggestDuration ? audioRef : biggest;
+        return biggest;
+    })
+
     if (isLoop) {
       audioRef.current.loop = true;
       audioRef.current.play();

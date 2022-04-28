@@ -4,17 +4,21 @@ import tracks from "./tracks";
 import Channel from "./Comps/channel/Channel";
 import ControlButtons from "./Comps/controlButtons/ControlButtons";
 import React, { useState, useEffect, useRef } from "react";
-import { TrackingSlider } from "./Comps/trackingSlider/TrackingSlider";
+import TrackingSlider from "./Comps/trackingSlider/TrackingSlider";
+import { width } from "@mui/system";
 
 function App() {
   const [isPlay, setIsPlay] = useState(false);
   const [stopSelected, setStopSelected] = useState(false);
   const [loopSelected, setLoopSelected] = useState(false);
+  const [biggestSample, setBiggestSample] = useState(null);
 
   const isPlaying = (data) => {
     setIsPlay(data);
+
     // return data;
   };
+
   const isStoped = (data) => {
     setStopSelected(data);
   };
@@ -30,6 +34,9 @@ function App() {
         isStoped={isStoped}
         isLoop={isLoop}
       />
+      <div style={{ width: "690px",margin:"auto" ,padding:"5px"}}>
+        <TrackingSlider audioRef={biggestSample} />
+      </div>
       {tracks?.map((track, index) => {
         return (
           <Channel
@@ -38,6 +45,7 @@ function App() {
             isPlaying={isPlay}
             isStoped={stopSelected}
             isLoop={loopSelected}
+            setBiggestSample={setBiggestSample}
           />
         );
       })}

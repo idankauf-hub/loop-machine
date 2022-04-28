@@ -65,7 +65,7 @@ export default function ControlButtons(props) {
           value="check"
           selected={selected}
           onChange={() => {
-            setClicked(true);
+            setClicked(false);
             setSelected(!selected);
             props.isLoop(!selected)
 
@@ -74,7 +74,6 @@ export default function ControlButtons(props) {
           <AllInclusiveIcon style={{ fontSize: "2rem"}} />
         </ToggleButton>
       </Stack>
-      <TrackingSlider/>
     </div>
   );
 }
