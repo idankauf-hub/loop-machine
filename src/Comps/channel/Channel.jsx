@@ -15,10 +15,10 @@ export default function Channel({ track, isPlaying, isLoop, isStoped,setBiggestS
   useEffect(() => {
     setBiggestSample((biggest)=>{
         const duration = audioRef.current.duration;
-        const biggestDuration = biggest
+        const biggestDuration = biggest    //if exist return current time
           ? biggest.current.currentTime
           : 0;
-        biggest = duration > biggestDuration ? audioRef : biggest;
+        biggest = duration > biggestDuration ? audioRef : biggest; 
         return biggest;
     })
 

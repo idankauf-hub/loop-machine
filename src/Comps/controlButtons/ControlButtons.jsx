@@ -35,13 +35,12 @@ export default function ControlButtons(props) {
         <Fab
           onClick={() => {
             if (clicked == false) {
-              props.isPlaying(!clicked)
+              props.isPlaying(!clicked);
               setClicked(true);
-              props.isStoped(false)
+              props.isStoped(false);
             } else {
               setClicked(false);
-              props.isPlaying(!clicked)
-
+              props.isPlaying(!clicked);
             }
           }}
         >
@@ -52,9 +51,8 @@ export default function ControlButtons(props) {
           onClick={() => {
             setClicked(false);
             setSelected(false);
-            props.isPlaying(false)
-            props.isStoped(true)
-
+            props.isPlaying(false);
+            props.isStoped(true);
           }}
         >
           <StopIcon />
@@ -66,11 +64,10 @@ export default function ControlButtons(props) {
           onChange={() => {
             setClicked(false);
             setSelected(!selected);
-            props.isLoop(!selected)
-
+            props.isLoop(!selected);
           }}
         >
-          <AllInclusiveIcon style={{ fontSize: "2rem"}} />
+          <AllInclusiveIcon style={{ fontSize: "2rem" }} />
         </ToggleButton>
       </Stack>
     </div>

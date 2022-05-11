@@ -13,7 +13,8 @@ export default ({ audioRef }) => {
       setCurrentTimePercent(timePercent);
     };
     current.ontimeupdate = onDuration;
-    return () => {
+    //after finish reset the position
+    return () => { 
       current.ontimeupdate = null;
     };
   }, [audioRef]);
@@ -22,7 +23,6 @@ export default ({ audioRef }) => {
     <div className="curser">
       <button style={{ left: currentTimePercent + "%" }}>
           <div className="candle"></div>
-        
       </button>
     </div>
   );

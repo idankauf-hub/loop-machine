@@ -15,8 +15,6 @@ function App() {
 
   const isPlaying = (data) => {
     setIsPlay(data);
-
-    // return data;
   };
 
   const isStoped = (data) => {
